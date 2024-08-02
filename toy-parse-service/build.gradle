@@ -2,6 +2,8 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.1'
 	id 'io.spring.dependency-management' version '1.1.5'
+	id "io.freefair.lombok" version "8.6"
+	id "jacoco"
 }
 
 group = 'com.project'
@@ -24,21 +26,83 @@ repositories {
 }
 
 springBoot {
-  mainClass = 'com.project.toy_parse_service.ToyPlayerServiceApplication'
+  mainClass = 'com.project.toy_parse_service.ToyParseServiceApplication'
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'com.google.api-client:google-api-client:2.3.0'
+	implementation 'com.google.apis:google-api-services-drive:v3-rev20240123-2.0.0'
+    implementation 'com.google.auth:google-auth-library-oauth2-http:1.24.0'
+	
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+test {
+    finalizedBy jacocoTestReport
+
+    testLogging {
+       events "failed", "passed", "skipped", "standardError","standardOut", "started"
+    }
+}
+
+jacocoTestReport {
+	dependsOn test
+
+	reports {
+        xml {
+            enabled true
+        }
+
+        html {
+            enabled true
+        }
+    }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['**/config/**', 
+					'**/dto/**', 
+					'**/entity/**', 
+					'**/exceptions/**',
+                    '**/enums/**',
+                    '**/ToyParseServiceApplication*',
+                    '**/FileStorageService*'])
+        })
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.5
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['com.project.toy_parse_service.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
 }

@@ -1,0 +1,36 @@
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_31u15rgp49jd63wuqlw65iwtp.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_6eha3gaujitbcyodbm0vjo8iv.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_7ypx2gz08kvlj6nyyvcd5uwn2.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_ahgjkw1jrh8hpt6tou8nj53gd.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_7ypx2gz08kvlj6nyyvcd5uwn2.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:38939 @/tmp/cp_7ypx2gz08kvlj6nyyvcd5uwn2.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:38937 @/tmp/cp_ahgjkw1jrh8hpt6tou8nj53gd.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_7ypx2gz08kvlj6nyyvcd5uwn2.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_9fq6bb1adwymfj8n5ffhyg1w1.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_df89qkdgag7r25d56gds7wndb.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_9xfaqu8csmb795dvz4gin3v7f.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_ejp1oi6x9jsomaj6nsv8p1tlq.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:36629 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:32769 @/tmp/cp_ejp1oi6x9jsomaj6nsv8p1tlq.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:37479 @/tmp/cp_ejp1oi6x9jsomaj6nsv8p1tlq.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_7wn80arjovh4z46oogmzmymsf.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:39929 @/tmp/cp_7wn80arjovh4z46oogmzmymsf.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:32843 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:35919 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:37565 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:42255 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:40473 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:44407 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_7wn80arjovh4z46oogmzmymsf.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:45819 @/tmp/cp_7wn80arjovh4z46oogmzmymsf.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:33045 @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_6k9yh5mgfg20gsx60gqclc44p.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_6k9yh5mgfg20gsx60gqclc44p.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_5w494efkg2s9i7mod3x4t8211.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ cd /app/toy-parse-service ; /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_85laa2djzkcxrxio77h024vy4.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+cd toy-parse-service/
+gradle cleanTest test
+cd toy-parse-service/
+gradle cleanTest test
