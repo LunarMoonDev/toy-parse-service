@@ -2,8 +2,11 @@ package com.project.toy_parse_service.util;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import com.google.api.services.drive.model.File;
+import com.project.toy_parse_service.dto.parse.ReportsDTO;
 import com.project.toy_parse_service.dto.parse.response.ParseResponseDTO;
 import com.project.toy_parse_service.entity.Reports;
 import com.project.toy_parse_service.enums.Errors;
@@ -12,6 +15,7 @@ import com.project.toy_parse_service.exceptions.GenericException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
 
 import java.math.BigInteger;
 
@@ -61,5 +65,19 @@ public class MapperUtilTest {
         assertNotNull(responseDTO);
         assertEquals(Errors.SERVICE_ERROR.getCode(), responseDTO.getCode());
         assertEquals(Errors.SERVICE_ERROR.getMessage(), responseDTO.getMessage());
+    }
+
+    @Test
+    public void testToReportsDTO() {
+        File file = Mockito.mock(File.class);
+
+        when(file.getName()).thenReturn("name");
+        when(file.getId()).thenReturn("id");
+
+        ReportsDTO reportsDTO = MapperUtil.toReportsDTO(file);
+
+        assertNotNull(reportsDTO);
+        assertNotNull(file.getId(), reportsDTO.getId());
+        assertNotNull(file.getName(), reportsDTO.getName());
     }
 }

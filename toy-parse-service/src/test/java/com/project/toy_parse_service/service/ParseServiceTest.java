@@ -13,7 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import com.project.toy_parse_service.dto.parse.ReportsDTO;
 import com.project.toy_parse_service.dto.parse.response.ParseResponseDTO;
+import com.project.toy_parse_service.dto.parse.response.ReportsResponseDTO;
 import com.project.toy_parse_service.entity.Reports;
 import com.project.toy_parse_service.enums.Errors;
 import com.project.toy_parse_service.enums.Success;
@@ -24,6 +26,7 @@ import com.project.toy_parse_service.service.impl.ParseServiceImpl;
 
 import reactor.core.publisher.Mono;
 
+import java.util.Collections;
 import java.io.IOException;
 import java.math.BigInteger;
 
@@ -57,6 +60,13 @@ public class ParseServiceTest {
 
     private Reports creaReports() {
         return Reports.builder().build();
+    }
+
+    private ReportsDTO createReportsDTO() {
+        return ReportsDTO.builder()
+            .name("sample")
+            .id("id")
+            .build();
     }
 
     // test
@@ -197,5 +207,34 @@ public class ParseServiceTest {
         assertNotNull(exception);
         assertEquals(exception.getCode(), Errors.SERVICE_ERROR.getCode());
         assertEquals(exception.getMessage(), Errors.SERVICE_ERROR.getMessage());
+    }
+
+    @Test
+    public void testList_Success() throws IOException {
+        String uuid = createUuid();
+        ReportsDTO reportsDTO = createReportsDTO();
+
+        when(fileService.list(uuid)).thenReturn(Mono.just(Collections.singletonList(reportsDTO)));
+        
+        ReportsResponseDTO response = service.list(uuid).block();
+
+        assertNotNull(response);
+        assertEquals(1, response.getData().size());
+    }
+
+    @Test
+    public void testList_Fail() throws IOException {
+        String uuid = createUuid();
+        ReportsDTO reportsDTO = createReportsDTO();
+
+        when(fileService.list(uuid)).thenThrow(new RuntimeException());
+
+        GenericException exception = assertThrows(GenericException.class, () -> {
+            ReportsResponseDTO response = service.list(uuid).block();
+        });
+
+        assertNotNull(exception);
+        assertEquals(Errors.SERVICE_ERROR.getCode(), exception.getCode());
+        assertEquals(Errors.SERVICE_ERROR.getMessage(), exception.getMessage());
     }
 }

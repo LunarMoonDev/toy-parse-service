@@ -1,5 +1,7 @@
 package com.project.toy_parse_service.controller;
 
+import java.util.Collections;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,10 +12,12 @@ import org.springframework.mock.web.MockMultipartFile;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import com.project.toy_parse_service.controller.v1.ParseController;
 import com.project.toy_parse_service.dto.parse.response.ParseResponseDTO;
+import com.project.toy_parse_service.dto.parse.response.ReportsResponseDTO;
 import com.project.toy_parse_service.enums.Success;
 import com.project.toy_parse_service.service.ParseService;
 import com.project.toy_parse_service.util.MapperUtil;
@@ -51,6 +55,12 @@ public class ParseControllerTest {
         return MapperUtil.toPlayerResponseDTO(Success.PARSE_UPLOAD_SUCCESS);
     }
 
+    private ReportsResponseDTO createReportsResponseDTO() {
+        return ReportsResponseDTO.builder()
+            .data(Collections.emptyList())
+            .build();
+    }
+
     // tests
     @Test
     public void testUploadCsvFile_Success() throws IOException {
@@ -66,5 +76,18 @@ public class ParseControllerTest {
         assertNotNull(response);
         assertEquals(Success.PARSE_UPLOAD_SUCCESS.getCode(), response.getBody().getCode());
         assertEquals(Success.PARSE_UPLOAD_SUCCESS.getMessage(), response.getBody().getMessage());
+    }
+
+    @Test
+    public void testListCsvFile_Success() throws IOException {
+        String uuid = createUuid();
+        ReportsResponseDTO report = createReportsResponseDTO();
+
+        when(service.list(anyString())).thenReturn(Mono.just(report));
+
+        ResponseEntity<ReportsResponseDTO> response = controller.listCsvFiles(uuid).block();
+
+        assertNotNull(response);
+        assertEquals(0, response.getBody().getData().size());
     }
 }
