@@ -1,8 +1,12 @@
 package com.project.toy_parse_service.util;
 
 import java.math.BigInteger;
+import java.util.List;
 
+import com.google.api.services.drive.model.File;
+import com.project.toy_parse_service.dto.parse.ReportsDTO;
 import com.project.toy_parse_service.dto.parse.response.ParseResponseDTO;
+import com.project.toy_parse_service.dto.parse.response.ReportsResponseDTO;
 import com.project.toy_parse_service.entity.Reports;
 import com.project.toy_parse_service.enums.Errors;
 import com.project.toy_parse_service.enums.Success;
@@ -34,6 +38,19 @@ public class MapperUtil {
         return ParseResponseDTO.builder()
                 .code(error.getCode())
                 .message(error.getMessage())
+                .build();
+    }
+
+    public static ReportsDTO toReportsDTO(File file) {
+        return ReportsDTO.builder()
+                .name(file.getName())
+                .id(file.getId())
+                .build();
+    }
+
+    public static ReportsResponseDTO toReportsResponseDTO(List<ReportsDTO> list) {
+        return ReportsResponseDTO.builder()
+                .data(list)
                 .build();
     }
 }
