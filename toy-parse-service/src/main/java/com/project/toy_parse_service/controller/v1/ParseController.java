@@ -13,11 +13,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import com.project.toy_parse_service.dto.parse.response.ParseResponseDTO;
+import com.project.toy_parse_service.dto.parse.response.ReportsResponseDTO;
 import com.project.toy_parse_service.exceptions.GenericException;
 import com.project.toy_parse_service.service.ParseService;
 
 import reactor.core.publisher.Mono;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 
@@ -34,5 +36,10 @@ public class ParseController {
             @RequestParam("player_id") BigInteger id)
             throws GenericException, IOException {
         return service.save(uuid, report, id).map(ResponseEntity::ok);
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public Mono<ResponseEntity<ReportsResponseDTO>> listCsvFiles(@RequestHeader("X-Tracker") String uuid) throws GenericException, IOException {
+        return service.list(uuid).map(ResponseEntity::ok);
     }
 }
