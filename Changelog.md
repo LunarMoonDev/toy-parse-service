@@ -1,5 +1,23 @@
 # Changelog
 
+## Version v0.3.0 (2024-08-06)
+
+### Features
+
+- added mapper util to transform csv files info into Report object (2655cd67)
+- added service to grab csv files (ebebf9ce)
+- added service method to grab files from gdrive (5cdd6fdb)
+- added DTO for get csv files endpoint (0bb41273)
+- added endpoint for listing files from gdrive (8e4441ca)
+
+### Tests
+
+- added unit testing for retrieving csv files (dfca342e)
+
+### Chores and tidying
+
+- added more commands in bash history (7c864a48)
+
 ## Version v0.2.0 (2024-08-02)
 
 ### Features
