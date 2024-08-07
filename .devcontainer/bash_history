@@ -34,3 +34,5 @@ cd toy-parse-service/
 gradle cleanTest test
 cd toy-parse-service/
 gradle cleanTest test
+cd toy-parse-service/
+gradle cleanTest test

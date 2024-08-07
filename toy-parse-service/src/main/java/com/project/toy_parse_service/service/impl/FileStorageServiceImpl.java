@@ -3,6 +3,7 @@ package com.project.toy_parse_service.service.impl;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,14 @@ import com.google.api.client.http.InputStreamContent;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
 import com.project.toy_parse_service.config.FileStorageConfig;
+import com.project.toy_parse_service.dto.parse.ReportsDTO;
 import com.project.toy_parse_service.enums.Errors;
 import com.project.toy_parse_service.exceptions.GenericException;
 import com.project.toy_parse_service.service.FileStorageService;
+import com.project.toy_parse_service.util.MapperUtil;
 
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -45,6 +49,24 @@ public class FileStorageServiceImpl implements FileStorageService {
         return Mono.fromCallable(() -> googleDrive.files().create(fileMetaData, stream).execute())
                 .doOnNext(response -> log.info("X-Tracker: {} | Success in uploading to gdrive", uuid))
                 .map(File::getId)
+                .doOnError(error -> {
+                    log.error("X-Tracker: {} | specific exception: {}", uuid, error.getMessage());
+
+                    throw new GenericException(Errors.SERVICE_ERROR);
+                });
+    }
+
+    @Override
+    public Mono<List<ReportsDTO>> list(String uuid) {
+        log.info("X-Tracker: {} | Retrieving files from gdrive", uuid);
+
+        String query = String.format("'%s' in parents", config.getParentFolder());
+
+        return Mono.fromCallable(() -> googleDrive.files().list().setQ(query).execute())
+                .map(fileList -> fileList.getFiles())
+                .flatMapMany(Flux::fromIterable)
+                .map(file -> MapperUtil.toReportsDTO(file))
+                .collectList()
                 .doOnError(error -> {
                     log.error("X-Tracker: {} | specific exception: {}", uuid, error.getMessage());
 
