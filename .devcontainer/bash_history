@@ -36,3 +36,9 @@ cd toy-parse-service/
 gradle cleanTest test
 cd toy-parse-service/
 gradle cleanTest test
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_ba3eu6gxiaocvd9frmowuifz1.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_6adl7xi4a56dz1gl3lj57whp3.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_caqn7wrt0t1q20kpbgflxkoqe.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_2etukfkywa0phe5v07j4fyfsg.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_djo69fvj0czakcyrk93c0j1jw.argfile com.project.toy_parse_service.ToyParseServiceApplication 
+ /usr/bin/env /usr/java/openjdk-17/bin/java @/tmp/cp_87mzmepwy1k3bqa75ezn280ga.argfile com.project.toy_parse_service.ToyParseServiceApplication 
